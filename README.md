@@ -114,8 +114,15 @@ docker build --platform linux/amd64 -t pdf-processor .
 ```
 
 **Run:**
+
+For Linux/MacOs:
 ```bash
-docker run --rm `  -v "${PWD}/input:/app/input:ro" `  -v "${PWD}/output:/app/output" `  --network none pdf-processor
+docker run --rm -v $(pwd)/input:/app/input:ro -v $(pwd)/output:/app/output --network none pdf-processor
+```
+
+For Windows/Powershell:
+```powershell
+docker run --rm -v "${PWD}/input:/app/input:ro" -v "${PWD}/output:/app/output" --network none pdf-processor
 ```
 - Input PDFs go in `input/`  
 - Results (`*.json`) will appear in `output/`

@@ -110,16 +110,12 @@ For each `filename.pdf` in the input directory, the script produces `filename.js
 
 **Build:**
 ```bash
-docker build --platform linux/amd64 -t adobe.ctd.r1a .
+docker build --platform linux/amd64 -t pdf-processor .
 ```
 
 **Run:**
 ```bash
-docker run --rm \
-  -v "$(pwd)/input:/app/input:ro" \
-  -v "$(pwd)/output:/app/output" \
-  --network none \
-  adobe.ctd.r1a
+docker run --rm `  -v "${PWD}/input:/app/input:ro" `  -v "${PWD}/output:/app/output" `  --network none pdf-processor
 ```
 - Input PDFs go in `input/`  
 - Results (`*.json`) will appear in `output/`
